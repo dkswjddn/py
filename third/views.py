@@ -21,7 +21,7 @@ def list(request):
 
 
 def detail(request, id):
-    restaurant = get_object_or_404(Restaurant, id=id)
+    restaurant = get_object_or_404(Restaurant, pk=id)
     
     context = {
         'restaurant' : restaurant
@@ -30,11 +30,7 @@ def detail(request, id):
     return render(request, 'third/detail.html', context)
 
 
-
-
-
-
-def delate(request, id):
+def delete(request, id):
     item = get_object_or_404(Restaurant, pk=id)
     item.delate()
     return HttpResponseRedirect('/third/list/')
